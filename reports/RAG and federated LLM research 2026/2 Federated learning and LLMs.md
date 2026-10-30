@@ -63,7 +63,7 @@ The table below is our own synthesis of the sourced mechanisms above. It is not 
 | Stacking | FLoRA | Yes | Full A and B | Yes (native) | None | Global rank and download grow with K. Non-convergence reported by LoRA-FAIR |
 | Residual correction | FedEx-LoRA, LoRA-FAIR | Yes / corrected | A, B plus residual handling | Assumes equal rank | None | Residual is full-size. Interacts with base-weight updates |
 | Train a core matrix | Fed-SB | Yes | r×r only | Not reported | None | Expressivity limited to R |
-| Share one factor | FedSA-LoRA (A), FFA-LoRA (B) | Yes for the shared factor | About half of LoRA ([efficiency notes](https://proceedings.iclr.cc/paper_files/paper/2025/hash/f53a37f820d5be5930415d964f4a0187-Abstract-Conference.html)) | Not native | Strong (FedSA) | Weaker global consensus or limited learnability |
+| Share one factor | FedSA-LoRA (A), FFA-LoRA (B) | Yes for the shared factor | About half of LoRA (our estimate from the mechanism) | Not native | Strong (FedSA) | Weaker global consensus or limited learnability |
 | SVD redistribution | FlexLoRA | Product-space | Full A and B | Yes | Per-client rank | Server SVD compute. Full-size ΔW at server |
 
 ## Rank heterogeneity spawned a dozen 2026 aggregation papers
@@ -78,7 +78,7 @@ When clients have different memory budgets they choose different LoRA ranks, and
 | FSLoRA: Federated Sketching LoRA | arXiv 2501.19389 (2025) | [arXiv HTML](https://arxiv.org/html/2501.19389v4) | Server holds a global LoRA. Each client updates a sketched sub-matrix sized to its capacity | Reports baselines **FlexLoRA 77.90 vs FLoRA 72.81** (normal rank distribution) and **75.59 vs 73.43** (heavy-tailed) | Not captured | A |
 | HeLoRA: LoRA-heterogeneous Federated Fine-tuning for FMs | ACM TOIT 2025 | [ACM DL](https://dl.acm.org/doi/10.1145/3723877) | Heterogeneous-LoRA FL | Not retrieved | Not captured | T |
 | FedHL: Unbiased Aggregation for Heterogeneous LoRA | arXiv 2505.18494 (2025) | [arXiv PDF](https://arxiv.org/pdf/2505.18494) | Unbiased aggregation across ranks | Not retrieved | Not captured | T |
-| AFLoRA: Adaptive LoRA for resource-efficient federated fine-tuning | arXiv 2505.24773 (2025) | listed in edge notes (link recorded as arXiv ID only) | Adaptive resource-efficient LoRA | Not retrieved | Not captured | T |
+| AFLoRA: Adaptive LoRA for resource-efficient federated fine-tuning | arXiv 2505.24773 (2025) | [arXiv HTML](https://arxiv.org/html/2505.24773v2) | Adaptive resource-efficient LoRA | Not retrieved | Not captured | T |
 | HierFedLoRA (Liu, Liao, Xu, Xu; USTC) | arXiv 2503.21213 (2025) | [arXiv PDF](https://arxiv.org/pdf/2503.21213) | Hierarchical, group-based LoRA aggregation for heterogeneous data | **+1.6–4.2%** accuracy and **≥2.1×** fine-tuning speedup over strong baselines | Not captured | A |
 | ILoRA | arXiv 2511.16069 (Nov 2025) | [arXiv](https://arxiv.org/abs/2511.16069) | Names three coupled failure modes: initialization-induced instability, rank incompatibility plus aggregation error, and client drift under non-IID data | Not retrieved | Not captured | A (framing) |
 | raFLoRA: Preventing Rank Collapse in Federated LoRA | arXiv 2602.13486 (2026) | [arXiv HTML](https://arxiv.org/html/2602.13486) | Argues zero-padding causes aggregation bias and **rank collapse**. Rank-partitioned aggregation | Not retrieved | Not captured | A |
